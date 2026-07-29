@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-
+ void test(int value){
+        value +=1;
+        printf("value %d", value);
+    };
 int main(){
     /*
     //first looking at c syntex it isent that far of from javascript 
@@ -33,7 +36,7 @@ int main(){
     //also we need to retun value in our funtion call 0 for code runs smothly 1 for errors
     //time to compile :)
     */
-
+    /*
     char product[20];
     int qountity;
     char validation[5];
@@ -43,13 +46,14 @@ int main(){
     product[strlen(product) - 1] = '\0';
     printf("how many %-1s do you want to order: ", product);
     scanf("%d", &qountity);
-    printf("is your older correct if its correct validate with \"yes\" if not validate with \"no\" your're getting %d \n", qountity);
-    printf("%s\n", product);
+    printf("is your older correct if its correct validate with \"yes\" if not validate with \"no\" your're getting %d  package of %s \n", qountity,  product);
+    //printf("%s\n", product);
     getchar();
     fgets(validation, sizeof(validation), stdin);
     validation[strlen(product) - 1]= '\0';
     total= qountity * 2;
-        printf("great your total is %d thank you for shopping have a nice day\n", total);
+        printf("great your total is $%d thank you for shopping have a nice day\n", total);
+    */
     //printf("%s", validation[0]);
     //printf(validation);
     /*
@@ -60,5 +64,125 @@ int main(){
         printf("sorry we got your order wrong could you place it over again \n");
     };
     */
+   /*
+    char date[]= __DATE__;
+    printf("%s \n", date);
+    */
+    //lets cacultate the days passed in a given year from the currnt year
+    const int newMonth= 7;
+    const int newDay= 29;
+    const int newYear=2026;
+    //
+    int enteredDay=0;
+    int enteredMonth=0;
+    int enteredYear=0;
+    //
+    //
+    printf("Enter date day: ");
+    scanf("%d", &enteredDay);
+    getchar();
+    printf("Enter date month: ");
+    scanf("%d", &enteredMonth);
+    getchar();
+    printf("Enter date year: ");
+    scanf("%d", &enteredYear);
+    //
+    int calculatedDay= enteredDay;
+    int calculatedMonth= enteredMonth;
+    int calculatedYear= enteredYear;
+    int daysPassed=0;
+    //
+    bool endLoop= false;
+    //
+    while (!endLoop){
+    if(calculatedDay == newDay && calculatedMonth == newMonth && calculatedYear == newYear){
+        endLoop =true;
+        continue;
+    };
+    //  
+    calculatedDay +=1;
+    daysPassed +=1;
+    int currentMonth = calculatedMonth;
+    switch (currentMonth) {
+        case 9 :// for 30 days month
+        if(calculatedDay == 30 ){
+        calculatedDay = 1;
+        if(calculatedMonth == 12){
+            calculatedMonth =1;
+            calculatedYear +=1;
+            //printf("year ++ %d \n", calculatedYear);
+        }else{
+            calculatedMonth +=1;
+        }
+        }
+        break;
+        case 4 :// for 30 days month
+        if(calculatedDay == 30 ){
+        calculatedDay = 1;
+        if(calculatedMonth == 12){
+            calculatedMonth =1;
+            calculatedYear +=1;
+            //printf("year ++ %d \n", calculatedYear);
+        }else{
+            calculatedMonth +=1;
+        }
+        }
+        break;
+        case 6 :// for 30 days month
+        if(calculatedDay == 30 ){
+        calculatedDay = 1;
+        if(calculatedMonth == 12){
+            calculatedMonth =1;
+            calculatedYear +=1;
+            //printf("year ++ %d \n", calculatedYear);
+        }else{
+            calculatedMonth +=1;
+        }
+        }
+        break;
+        case 11 :// for 30 days month
+        if(calculatedDay == 30 ){
+        calculatedDay = 1;
+        if(calculatedMonth == 12){
+            calculatedMonth =1;
+            calculatedYear +=1;
+            //printf("year ++ %d \n", calculatedYear);
+        }else{
+            calculatedMonth +=1;
+        }
+        }
+        break;
+        case 2 :// for 29 days month
+        if(calculatedDay == 29 ){
+        calculatedDay = 1;
+        if(calculatedMonth == 12){
+            calculatedMonth =1;
+            calculatedYear +=1;
+            //printf("year ++ %d \n", calculatedYear);
+        }else{
+            calculatedMonth +=1;
+        }
+        }
+        break;
+        default :
+        if(calculatedDay == 31 ){ // for 31 days
+        calculatedDay = 1;
+        if(calculatedMonth == 12){
+            calculatedMonth =1;
+            calculatedYear +=1;
+            //printf("year ++ %d \n", calculatedYear);
+        }else{
+            calculatedMonth +=1;
+        }
+        }
+        break;
+    }
+    }
+    
+    printf("%d %d %d \n", enteredDay, enteredMonth, enteredYear);
+    printf("Total number of days passed from %d/%d/%d TO %d/%d/%d is %d \n", enteredDay, enteredMonth, enteredYear, newDay, newMonth, newYear, daysPassed);
+    int someValue=0;
+    test(someValue);
+    printf("resoult %d \n", someValue);
     return 0;
 }
