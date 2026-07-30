@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
- void test(int value){
+
+ int doMathsReturnIncrementedYear(int value){
         value +=1;
-        printf("value %d", value);
+        return value;
     };
+    
 int main(){
     /*
     //first looking at c syntex it isent that far of from javascript 
@@ -69,6 +71,7 @@ int main(){
     printf("%s \n", date);
     */
     //lets cacultate the days passed in a given year from the currnt year
+   
     const int newMonth= 7;
     const int newDay= 29;
     const int newYear=2026;
@@ -181,8 +184,6 @@ int main(){
     
     printf("%d %d %d \n", enteredDay, enteredMonth, enteredYear);
     printf("Total number of days passed from %d/%d/%d TO %d/%d/%d is %d \n", enteredDay, enteredMonth, enteredYear, newDay, newMonth, newYear, daysPassed);
-    int someValue=0;
-    test(someValue);
-    printf("resoult %d \n", someValue);
+   
     return 0;
 }
