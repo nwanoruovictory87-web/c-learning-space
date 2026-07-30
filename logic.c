@@ -10,13 +10,13 @@
 //bool includes(char* pArray, char value);
 //bool includesMultiple(char* pArray, char* pArrayValue);
 char pushSingle(char *pArray, char value);
+char pushMultiple(char *pArray, char* pValues);
 int  main(){
-    
     //char name[]= "victory";
     //char find = 's';
     //char name[]= "victory";
     //char find[] = "victor";
-    char name[]= "victory";
+    char name[]= "Victory";
     /*
     char* name= malloc(20);
     (name[0])= 'v';
@@ -29,7 +29,7 @@ int  main(){
     */
    //scanf("%c", &name[0]);
    //printf("name value %s \n", name);
-    char value = 'N';
+    char value[] = " Nwanoruo";
     //char* pName = malloc(50);
     //printf("%ld \n", sizeof(name));
     //first am going to go with linear seach as .includes do then i check if i coud do binary search
@@ -41,8 +41,9 @@ int  main(){
     //printf("name: %c\n", name[0]);
     //printf("pointer %p\n", pName);
     //free(pName);
-    pushSingle(name, value);
-    printf("finished modified array %s \n",name);
+    //pushSingle(name, value);
+    //pushMultiple(name, value);
+    //printf("finished modified array %s \n",name);
     return 1;
 }
 /*//1 .includes
@@ -76,7 +77,7 @@ bool includesMultiple(char* pArray, char* pArrayValue){
 };
 */
 
-// 2 .push 
+/*// 2 .push 
 char pushSingle(char *pArray, char value){
     int lenthOfArray= sizeof(pArray) / sizeof((pArray[0]));
     printf("original pointer %p \n", pArray);
@@ -90,3 +91,18 @@ char pushSingle(char *pArray, char value){
     printf("modified array %s \n",(pArray));
     printf("modified pointer %p \n", pArray);
 }
+//
+char pushMultiple(char *pArray, char* pValues){
+    int lenthOfParentArray= sizeof(pArray) / sizeof((pArray[0]));
+    int lenthOfChildArray= sizeof(pValues) / sizeof((pValues[0]));
+    for(int i=0; i< lenthOfParentArray; i++){
+        (pArray[i]) = (pArray[i]);
+        if((i + 1) == lenthOfParentArray){
+            for(int j=0; j< lenthOfChildArray; j++){
+                (pArray[(i + j)]) = (pValues[j]);
+                
+            }
+        }
+    }
+}
+*/
