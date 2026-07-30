@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <strings.h>
 #include <stdlib.h>
+#include <unistd.h>
 //am going to be creating some javaScript built in methods
     //1 .inclueds which is a linear seacrh that goes through the list and cheack if a value exist it returns true if it does if not it return false
     //2 .push and .pop // .push which takes a value and append it to the end of an array and //.pop removes a single value from the end of an erray
@@ -9,14 +10,15 @@
 //
 //bool includes(char* pArray, char value);
 //bool includesMultiple(char* pArray, char* pArrayValue);
-char pushSingle(char *pArray, char value);
-char pushMultiple(char *pArray, char* pValues);
+//char pushSingle(char *pArray, char value);
+//char pushMultiple(char *pArray, char* pValues);
+int pop(char *pArray);
 int  main(){
-    //char name[]= "victory";
+    char name[]= "victory";
     //char find = 's';
     //char name[]= "victory";
     //char find[] = "victor";
-    char name[]= "Victory";
+    //char name[]= "Victory";
     /*
     char* name= malloc(20);
     (name[0])= 'v';
@@ -29,7 +31,7 @@ int  main(){
     */
    //scanf("%c", &name[0]);
    //printf("name value %s \n", name);
-    char value[] = " Nwanoruo";
+    //char value[] = " Nwanoruo";
     //char* pName = malloc(50);
     //printf("%ld \n", sizeof(name));
     //first am going to go with linear seach as .includes do then i check if i coud do binary search
@@ -43,7 +45,11 @@ int  main(){
     //free(pName);
     //pushSingle(name, value);
     //pushMultiple(name, value);
-    //printf("finished modified array %s \n",name);
+    pop(name);
+    pop(name);
+    //pop(name);
+    //pop(name);
+    printf("finished modified array %s \n",name);
     return 1;
 }
 /*//1 .includes
@@ -106,3 +112,22 @@ char pushMultiple(char *pArray, char* pValues){
     }
 }
 */
+//
+///3 pop
+int pop(char *pArray){
+    int lengthOfArray= sizeof(pArray) / sizeof((pArray[0]));
+    printf("original pointer %p \n", pArray);
+    printf("original array %s \n",(pArray));
+    printf("calculated size %ld original size %d \n", ((sizeof(char) * lengthOfArray) - sizeof(char)), lengthOfArray);
+    printf("size of char in bytes %ld size of array in bytes %ld \n", sizeof(char), sizeof(pArray));
+    for(int i=0; i<lengthOfArray; i++){
+        //printf("i :%d\n", i);
+        if(i < lengthOfArray - 2){
+            printf("keep %c\n", (pArray[i]));
+           (pArray[i]) = (pArray[i]);
+        }
+    }; 
+    printf("array size %ld \n", sizeof(pArray));
+    printf("modified array %s \n",(pArray));
+    printf("modified pointer %p \n", pArray);
+}
