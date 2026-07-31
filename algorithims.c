@@ -10,8 +10,8 @@ int main(){
     long int superLongDataLength= 8998897589;
     printf("before \n");
     //printf("size of count %p", (i));
-    //int find =7589464;
-   long int find = 7989487942;
+    long int find =758946486;
+    //long int find = 87942;
     for(long int i=0; i< superLongDataLength; i++){
       if(i == find){
         printf("linear search found data %ld \n", i);
@@ -20,57 +20,62 @@ int main(){
       if((i + 1) == superLongDataLength){
         printf("No data found on liner search\n");
       }
-    }
+    };
     int result= findValueAtIndex(superLongDataLength, find);
     //
     printf("search reasult - %d \n", result);
     return 0;
 }
 
- int findValueAtIndex(long int superLongDataLength, long int find){
-      long int forward= 0;
-      long int middle=0; 
-      long incrementMiddle = superLongDataLength / 2;
-      const long int maxItiration= 1000;
-      printf("size of %ld \n", sizeof(superLongDataLength));
-      //printf("max value %ld \n", maxItiration);
-      bool isValueFound= false;
-      while (((forward  + middle) < superLongDataLength) && !isValueFound){
-      int countFoward=0;
-    //
-   long int forwardsLimit= (forward + maxItiration) > (superLongDataLength / 2) ? (superLongDataLength / 2) : (forward + maxItiration);
-   //printf("fowards limit %ld \n", forwardsLimit);
-    for(long int i =forward; i< forwardsLimit; i++){
-      // printf("forwards %ld \n", i);  
-      if(i == find){
-            printf("found value at %ld index value is %ld moving fowards  moved %ld fowards \n", i, find, (forward + countFoward));
-            isValueFound = true;
-            return 0;
-          }
-        countFoward +=1;
-        forward +=1;
+int findValueAtIndex(long int superLongDataLength, long int find){
+  long int halfOfList= superLongDataLength /2;
+  long int supHalfList= halfOfList / 2;
+  //
+  printf("half %ld subHalf %ld  \n", halfOfList, supHalfList);
+  //
+  long int first=0;
+  long int middle =0;
+  long int last=0;
+  const long int maxItarationForEachCycle= 100;
+  bool isDataFound=false;
+  //
+  while (((first + middle + last) < superLongDataLength) && !isDataFound)
+  {
+    long int fLimit= (((first + maxItarationForEachCycle) > ( halfOfList / 2) ) ? ( halfOfList / 2) : (first + maxItarationForEachCycle));
+  for(long int i=first; i< fLimit; i++){
+    if(i == find){
+      printf("found data at index %ld in %s \n", i, (supHalfList == 0) ? "First loop" : "Second loop");
+      printf("scaned first %ld second %ld last %ld ",  first, middle, last);
+      isDataFound = true;
+      return i;
     }
-   //forward += countFoward;
-    //
-    int countMiddle=0;
-    for(long int i =incrementMiddle; i < superLongDataLength;  i++){
-        //printf("middle %ld \n", i);
-        if(i == find){
-            printf("found value at %ld index value is %ld moving from middle  moved %ld started at %ld \n", i, find, (incrementMiddle +  countMiddle), (superLongDataLength / 2));
-          isValueFound = true;
-          printf("index %ld \n", i);
-            return i;
-          }
-        countMiddle +=1;
-        middle+=1;
-    }
-   incrementMiddle += countMiddle;
-   //middle += countMiddle;
-   //printf("forwards %ld - middle %ld - backwards %ld \n", forward, middle, backward);
-    }
-    printf("total value %ld\n", (forward + middle ));
-    if((forward  + middle ) == superLongDataLength){
-      printf("No data found\n");
-      return -1;
-    }
-    }
+    first ++;
+  }
+ //
+ long int sLimit= (((supHalfList + maxItarationForEachCycle) > halfOfList ) ? halfOfList : (supHalfList + maxItarationForEachCycle));
+  for(long int i=supHalfList; i< sLimit; i++){
+    if(i == find){
+      printf("found data at index %ld in %s \n", i, (supHalfList == 0) ? "First loop" : "Second loop");
+      printf("scaned first %ld second %ld last %ld ",  first, middle, last);
+      isDataFound = true;
+      return i;
+    };
+    supHalfList ++;
+    middle ++;
+  }
+  //
+  long int e= (superLongDataLength - 1) -last;
+  long int eLimit = (((e - maxItarationForEachCycle ) < halfOfList ) ? halfOfList : (e - maxItarationForEachCycle )) - 1;
+  for(long int i=e; i >eLimit; i--){
+    if(i == find){
+      printf("found data at index %ld in Last loop\n", i);
+      printf("scaned first %ld second %ld last %ld ",  first, middle, last);
+      isDataFound = true;
+      return i;
+    };
+    last ++;
+  }
+  }
+  printf("No data macthed  scanded %ld records\n", (first + middle + last));
+  return -1;
+}
