@@ -1,146 +1,61 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
+
+ int findValueAtIndex(int superLongDataLength, int find);
 
 int main(){
     //binary search
     //int length = 
-    long int superLongDataLength= 985649035;
+    long int superLongDataLength= 987589464;
     printf("before \n");
     //printf("size of count %p", (i));
-    int find =7589464;
+    //int find =7589464;
+    int find =798589464;
+    __DATE__;
+    int result= findValueAtIndex(superLongDataLength, find);
     //
-    if(((superLongDataLength % 2) == 0)){
-        printf("yes \n");
-        int firstHalf = superLongDataLength /2;
-        int secondHalf = superLongDataLength /2;
-        printf("first half %d \n", firstHalf);
-        printf("second half %d \n", secondHalf);
-        //
-        if((firstHalf % 2) == 0){
-            int firstHalfOfFirstHalf= firstHalf /2;
-            int secondHalfOfFirstHalf= (firstHalf / 2) + firstHalfOfFirstHalf;
-            //
-            printf("first half  of first half %d \n", firstHalfOfFirstHalf);
-            printf("second Half of first half %d \n", secondHalfOfFirstHalf);
-            //
-            for(int i=0; i< firstHalfOfFirstHalf; i++){
-                if(i == find){
-                    printf("found value at firstHalfOfFirstHalf data %d value %d \n", i, find);
-                    break;
-                }
-            };
-            for(int i=firstHalfOfFirstHalf; i< secondHalfOfFirstHalf; i++){ 
-                if(i == find){
-                    printf("found value at secondHalfOfFirstHalf data %d value %d \n", i, find);
-                    break;
-                }
-            }
-        }else{
-            for(int i=0; i< firstHalf; i++){
-                if(i == find){
-                    printf("found value at firstHalf data %d value %d \n", i, find);
-                    break;
-                }
-            }
-        };
-        //
-        if((secondHalf % 2) == 0){
-            int firstHalfOfSecondHalf= (secondHalf /2) + firstHalf;
-            int secondHalfOfSecondHalf= (secondHalf / 2) + firstHalfOfSecondHalf;
-           printf("first half  of first half s %d \n", firstHalfOfSecondHalf);
-            printf("second Half of first half s %d \n", secondHalfOfSecondHalf);
-            //
-            for(int i=firstHalf; i< firstHalfOfSecondHalf; i++){
-                if(i == find){
-                    printf("found value at firstHalfOfSecondHalf s data %d value %d \n", i, find);
-                    break;
-                }
-            };
-            for(int i=firstHalfOfSecondHalf; i< secondHalfOfSecondHalf; i++){
-                if(i == find){
-                    printf("found value at secondHalfOfSecondHalf s data %d value %d \n", i, find);
-                    break;
-                }
-            }
-        }else{
-            for(int i=secondHalf; i< superLongDataLength; i++){
-                if(i == find){
-                    printf("found value at secondHalf data %d value %d \n", i, find);
-                    break;
-                }
-            }
-        };
-    }else {
-        int firstHalf = superLongDataLength /2;
-        int secondHalf = superLongDataLength - firstHalf;
-        printf("first half 2 %d \n", firstHalf);
-        printf("second half 2 %d \n", secondHalf);
-        //
-        if((firstHalf % 2) == 0){
-            int firstHalfOfFirstHalf= firstHalf /2;
-            int secondHalfOfFirstHalf= firstHalf / 2;
-            //
-            printf("first half  of first half %d \n", firstHalfOfFirstHalf);
-            printf("second Half of first half %d \n", secondHalfOfFirstHalf);
-            //
-            for(int i=0; i< firstHalfOfFirstHalf; i++){
-                if(i == find){
-                    printf("found value at firstHalfOfFirstHalf data %d value %d \n", i, find);
-                    break;
-                }
-            };
-            for(int i=secondHalfOfFirstHalf; i< firstHalf; i++){ 
-                if(i == find){
-                    printf("found value at secondHalfOfFirstHalf data %d value %d \n", i, find);
-                    break;
-                }
-            }
-        }else{
-            for(int i=0; i< firstHalf; i++){
-                if(i == find){
-                    printf("found value at firstHalf data %d value %d \n", i, find);
-                    break;
-                }
-            }
-        };
-        //
-        if((secondHalf % 2) == 0){
-            int firstHalfOfSecondHalf= secondHalf /2;
-            int secondHalfOfSecondHalf= secondHalf / 2;
-            //
-            for(int i=0; i< firstHalfOfSecondHalf; i++){
-                if(i == find){
-                    printf("found value at firstHalfSecondHalf data %d value %d \n", i, find);
-                    break;
-                }
-            };
-            for(int i=secondHalfOfSecondHalf; i< secondHalf; i++){
-                if(i == find){
-                    printf("found value at secondHalfOfSecondHalf data %d value %d \n", i, find);
-                    break;
-                }
-            }
-        }else{
-            for(int i=secondHalf; i< superLongDataLength; i++){
-                if(i == find){
-                    printf("found value at secondHalf data %d value %d \n", i, find);
-                    break;
-                }
-            }
-        };
+    __DATE__;
+    printf("search reasult - %d \n", result);
+    for( int i=0; i< superLongDataLength; i++){
+      if(i == find){
+        printf("linear search found data %d \n", i);
+      }
     }
-    for( int i; i< superLongDataLength; i++){
-      if(i == 1000000){
-        printf("one million \n");
-      }else if(i == 10000000){
-        printf("10 million \n");
-      } else if(i == 100000000){
-        printf("100 million \n");
-      } 
-    }
-    
-    printf("after  \n");
-    printf("split %ld \n", (superLongDataLength  / 2));
     return 0;
 }
+
+ int findValueAtIndex(int superLongDataLength, int find){
+      int forward= 0;
+      int backward=0;
+      const int maxItiration= 1000;
+      bool isValueFound= false;
+      while (((forward + backward + 1) != superLongDataLength) && !isValueFound){
+      int countFoward=0;
+    //
+    for(int i =forward; i< ((forward + maxItiration) > superLongDataLength ? superLongDataLength : (forward + maxItiration)); i++){
+       //printf("forwards %d \n", i);  
+      if(i == find){
+            printf("found value at %d index value is %d moving forwards moved %d forwards & %d backwords \n", i, find, forward, backward);
+            isValueFound = true;
+            return i;
+          }
+        countFoward +=1;
+    }
+    forward += countFoward;
+    //
+    int countBackword=0;
+    int bacwardScaned= superLongDataLength - backward;
+    for(int i =bacwardScaned; i> ((bacwardScaned - maxItiration) < forward ? forward : (bacwardScaned - maxItiration)); i--){
+        //printf("backwords %d \n", i);
+        if(i == find){
+            printf("found value at %d index value is %d moving backwords  moved %d backwords & %d forwards\n", i, find, backward, forward);
+          isValueFound = true;
+            return i;
+          }
+        countBackword +=1;
+    }
+    backward += countBackword;
+    }
+    }
