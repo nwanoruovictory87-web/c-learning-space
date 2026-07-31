@@ -8,21 +8,23 @@
 int main(){
     //binary search
     //int length = 
-    long int superLongDataLength= 987589464;
+    long int superLongDataLength= 987589964;
     printf("before \n");
     //printf("size of count %p", (i));
     //int find =7589464;
     int find =798589464;
-    __DATE__;
-    int result= findValueAtIndex(superLongDataLength, find);
-    //
-    __DATE__;
-    printf("search reasult - %d \n", result);
     for( int i=0; i< superLongDataLength; i++){
       if(i == find){
         printf("linear search found data %d \n", i);
+        break;
+      };
+      if((i + 1) == superLongDataLength){
+        printf("No data found on liner search\n");
       }
     }
+    int result= findValueAtIndex(superLongDataLength, find);
+    //
+    printf("search reasult - %d \n", result);
     return 0;
 }
 
@@ -31,7 +33,7 @@ int main(){
       int backward=0;
       const int maxItiration= 1000;
       bool isValueFound= false;
-      while (((forward + backward + 1) != superLongDataLength) && !isValueFound){
+      while (((forward + backward) < superLongDataLength) && !isValueFound){
       int countFoward=0;
     //
     for(int i =forward; i< ((forward + maxItiration) > superLongDataLength ? superLongDataLength : (forward + maxItiration)); i++){
@@ -43,7 +45,7 @@ int main(){
           }
         countFoward +=1;
     }
-    forward += countFoward;
+   forward += countFoward;
     //
     int countBackword=0;
     int bacwardScaned= superLongDataLength - backward;
@@ -56,6 +58,10 @@ int main(){
           }
         countBackword +=1;
     }
-    backward += countBackword;
+   backward += countBackword;
+    }
+    printf("total value %d\n", (forward + backward ));
+    if((forward + backward ) == superLongDataLength){
+      printf("No data found\n");
     }
     }
