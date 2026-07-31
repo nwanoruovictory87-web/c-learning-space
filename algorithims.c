@@ -14,7 +14,15 @@ int main(){
     //printf("size of count %p", (i));
     //int find =7589464;
    long int find = 7989487942;
-    
+    for( long int i=0; i< superLongDataLength; i++){
+      if(i == find){
+        printf("linear search found data %ld \n", i);
+        break;
+      };
+      if((i + 1) == superLongDataLength){
+        printf("No data found on liner search\n");
+      }
+    }
     int result= findValueAtIndex(superLongDataLength, find);
     //
     printf("search reasult - %d \n", result);
