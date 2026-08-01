@@ -47,8 +47,8 @@ int  main(){
     //pushMultiple(name, value);
     pop(name);
     pop(name);
-    //pop(name);
-    //pop(name);
+    pop(name);
+    pop(name);
     printf("finished modified array %s \n",name);
     return 1;
 }
@@ -118,16 +118,19 @@ int pop(char *pArray){
     int lengthOfArray= sizeof(pArray) / sizeof((pArray[0]));
     printf("original pointer %p \n", pArray);
     printf("original array %s \n",(pArray));
-    printf("calculated size %ld original size %d \n", ((sizeof(char) * lengthOfArray) - sizeof(char)), lengthOfArray);
-    printf("size of char in bytes %ld size of array in bytes %ld \n", sizeof(char), sizeof(pArray));
-    for(int i=0; i<lengthOfArray; i++){
-        //printf("i :%d\n", i);
-        if(i < lengthOfArray - 2){
-            printf("keep %c\n", (pArray[i]));
-           (pArray[i]) = (pArray[i]);
+    //printf("calculated size %ld original size %d \n", ((sizeof(char) * lengthOfArray) - sizeof(char)), lengthOfArray);
+    //printf("size of char in bytes %ld size of array in bytes %ld \n", sizeof(char), sizeof(pArray));
+    int originalLengthOfArray=0;
+    for (int i=0; i<lengthOfArray; i++){
+        if(pArray[i] != '\0'){
+            originalLengthOfArray++;
         }
-    }; 
+    }
+    printf("original array size %d \n", originalLengthOfArray);
+    pArray[originalLengthOfArray - 1] = '\0';
+    printf("some value at %d index value is %c \n", (originalLengthOfArray - 1), pArray[originalLengthOfArray - 1]);
     printf("array size %ld \n", sizeof(pArray));
     printf("modified array %s \n",(pArray));
     printf("modified pointer %p \n", pArray);
-}
+};
+
