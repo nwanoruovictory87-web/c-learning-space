@@ -47,8 +47,8 @@ int  main(){
     //pushMultiple(name, value);
     pop(name);
     pop(name);
-    pop(name);
-    pop(name);
+    //pop(name);
+    //pop(name);
     printf("finished modified array %s \n",name);
     return 1;
 }
@@ -122,9 +122,8 @@ int pop(char *pArray){
     //printf("size of char in bytes %ld size of array in bytes %ld \n", sizeof(char), sizeof(pArray));
     int originalLengthOfArray=0;
     for (int i=0; i<lengthOfArray; i++){
-        if(pArray[i] != '\0'){
-            originalLengthOfArray++;
-        }
+        if(pArray[i] == '\0') break;
+         originalLengthOfArray++;
     }
     printf("original array size %d \n", originalLengthOfArray);
     pArray[originalLengthOfArray - 1] = '\0';
